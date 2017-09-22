@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IoP</title>
+</head>
+<body>
+	<form>
+		<input type="text" name="">
+		<input type="submit" name="">
+	</form>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	<script>
+		$('form').submit(function(e){
+			event.preventDefault();
+			$.ajax({
+				method:'POST', url:$('input[type="text"]').val()
+			},function(data){console.log(data);});
+		});
+	</script>
+</body>
+</html>

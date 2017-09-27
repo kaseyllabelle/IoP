@@ -7,15 +7,21 @@
 	<form>
 		<input type="text" name="">
 		<textarea>
-			
+
 		</textarea>
 		<input type="submit" name="">
 	</form>
+			grant_type:'authorization_code',
+			client_id:'4924393521510627802',
+			client_secret:'953d71f8410650fb398fc0e22eb771318dcf6b0d33a80e3609f8dc73e5665758',
+			code:'b49a7a88d9bd5e8a'
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	  crossorigin="anonymous"></script>
 	<script>
+
+
 		var fiveHundredPx = {
 			oauth_callback: 'https://kaseyllabelle.github.io/IoP/callback.html'
 		}
@@ -26,10 +32,18 @@
 				code:'b49a7a88d9bd5e8a'};
 		$('form').submit(function(e){
 			event.preventDefault();
+			let obj = {},
+					tmp = $('textarea').val().trim().split(',');
+					tmp.map((itm) => {
+						let tmp2 = itm.split(':');
+						obj[tmp2[0].trim()] = tmp2[1].replace(/\'/g,'').trim();
+					})
+					obj = JSON.stringify(obj)
+					// console.log('obj:',obj,tmp);
 			$.ajax({
-				method:'POST', 
-				url:$('input[type="text"]').val(), 
-				data: JSON.stringify($('textarea').val())
+				method:'POST',
+				url:$('input[type="text"]').val(),
+				data: obj
 			},function(data){console.log(data);});
 		});
 	</script>

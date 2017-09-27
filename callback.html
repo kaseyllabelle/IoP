@@ -11,7 +11,23 @@
 		<input id="radio-get" type="radio" name="req" value="GET" /><label for="radio-get">GET</label>
 		<input type="submit" name="">
 	</form>
-			Pinterest 1:<br/>
+			Pinterest Login:<br/>
+			<br /><br /><br />
+			<a href="https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://kaseyllabelle.github.io/IoP/callback.html&client_id=4924393521510627802&scope=read_public&state=pinpuppies">pinterest oauth</a>
+			<script>
+				$(document).ready(()=>
+				{
+					if(getURLParameter('state') === 'pinpuppies')
+					{
+						$('input[type="text"]').val('https://api.pinterest.com/v1/oauth/token')
+						$('textarea').val(`grant_type:'authorization_code',client_id:'4924393521510627802',client_secret:'953d71f8410650fb398fc0e22eb771318dcf6b0d33a80e3609f8dc73e5665758',code:'${getURLParameter('code')}'`)
+						$('input[type="submit"]').click();
+						//alert('pinterest key is in the console')
+					}
+				});
+			</script>
+					<br /><br /><br />
+
 			<code>
 			grant_type:'authorization_code',
 			client_id:'4924393521510627802',
@@ -24,6 +40,8 @@
 	  crossorigin="anonymous"></script>
 	<script>
 
+	function getURLParameter(name)
+	{ return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null; }
 
 		var fiveHundredPx = {
 			oauth_callback: 'https://kaseyllabelle.github.io/IoP/callback.html'

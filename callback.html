@@ -35,11 +35,12 @@
 				code:'b49a7a88d9bd5e8a'};
 		$('form').submit(function(e){
 			event.preventDefault();
-			let obj = {};
+			let obj = {},
+					tmp = '';
 
 					if($('textarea').val().length)
 					{
-						let tmp = $('textarea').val().trim().split(',');
+						tmp = $('textarea').val().trim().split(',');
 						tmp.map((itm) => {
 							let tmp2 = itm.split(':');
 							// if(tmp2[1] && !tmp2[1].length){continue}

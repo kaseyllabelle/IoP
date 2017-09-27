@@ -38,7 +38,7 @@
 						let tmp2 = itm.split(':');
 						obj[tmp2[0].trim()] = tmp2[1].replace(/\'/g,'').trim();
 					})
-					obj = JSON.stringify(obj)
+					// obj = JSON.stringify(obj)
 					// console.log('obj:',obj,tmp);
 			$.ajax({
 				method:'POST',

@@ -42,7 +42,7 @@
 					{
 						tmp = $('textarea').val().trim().split(',');
 						tmp.map((itm) => {
-							let tmp2 = itm.split(':');
+							let tmp2 = itm.split(/:(?=\')/g);
 							// if(tmp2[1] && !tmp2[1].length){continue}
 							obj[tmp2[0].trim()] = tmp2[1].replace(/\'/g,'').trim();
 						})

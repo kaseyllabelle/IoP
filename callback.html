@@ -113,26 +113,26 @@ function requestTokenURL() { return 'https://api.500px.com/v1/oauth/request_toke
 				$('input[type="submit"]').click();
 				alert('pinterest key is in the console (network tab)')
 			}
-			function login500(e)
-			{
-				window.open('https://api.500px.com/api/js-sdk/authorize?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=login500cb',
-                  '500px_js_sdk_login',
-                  'width=1240,height=480,left=100,top=100,menu=no,location=yes,scrollbars=no,status=no,toolbar=no');
-			}
-			function login500cb(e)
-			{
-				//https://github.com/500px/500px-js-sdk/blob/master/500px.js
-				let iframe_element = document.createElement('iframe');
-				iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500';
-      	$('body').appendChild(iframe_element);
-				console.log('login 500',e);
-			}
-			function check500(e)
-			{
-				//https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500
-				console.log('check500',e);
-			}
 		});
+		function login500(e)
+		{
+			window.open('https://api.500px.com/api/js-sdk/authorize?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=login500cb',
+								'500px_js_sdk_login',
+								'width=1240,height=480,left=100,top=100,menu=no,location=yes,scrollbars=no,status=no,toolbar=no');
+		}
+		function login500cb(e)
+		{
+			//https://github.com/500px/500px-js-sdk/blob/master/500px.js
+			let iframe_element = document.createElement('iframe');
+			iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500';
+			$('body').appendChild(iframe_element);
+			console.log('login 500',e);
+		}
+		function check500(e)
+		{
+			//https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500
+			console.log('check500',e);
+		}
 	</script>
 </body>
 </html>

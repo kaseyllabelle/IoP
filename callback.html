@@ -122,6 +122,7 @@ function requestTokenURL() { return 'https://api.500px.com/v1/oauth/request_toke
 		}
 		function login500cb(e)
 		{
+			$('body').append('howdy');
 			//https://github.com/500px/500px-js-sdk/blob/master/500px.js
 			let iframe_element = document.createElement('iframe');
 			iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500';
@@ -130,6 +131,7 @@ function requestTokenURL() { return 'https://api.500px.com/v1/oauth/request_toke
 		}
 		function check500(e)
 		{
+			$('body').append('doody');
 			//https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500
 			console.log('check500',e);
 		}

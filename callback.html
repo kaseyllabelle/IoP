@@ -37,11 +37,14 @@
 			event.preventDefault();
 			let obj = {},
 					tmp = $('textarea').val().trim().split(',');
-					tmp.map((itm) => {
-						let tmp2 = itm.split(':');
-						// if(tmp2[1] && !tmp2[1].length){continue}
-						obj[tmp2[0].trim()] = tmp2[1].replace(/\'/g,'').trim();
-					})
+					if(tmp.length)
+					{
+						tmp.map((itm) => {
+							let tmp2 = itm.split(':');
+							// if(tmp2[1] && !tmp2[1].length){continue}
+							obj[tmp2[0].trim()] = tmp2[1].replace(/\'/g,'').trim();
+						})
+					}
 					// obj = JSON.stringify(obj)
 					console.log('obj:',obj,tmp,$('input[type="radio"]:checked').val());
 			$.ajax({

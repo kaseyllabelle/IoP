@@ -45,7 +45,7 @@
 					// obj = JSON.stringify(obj)
 					console.log('obj:',obj,tmp,$('input[type="radio"]:checked').val());
 			$.ajax({
-				method:$('radio:selected').val(),
+				method:$('radio:checked').val(),
 				url:$('input[type="text"]').val(),
 				data: obj
 			},function(data){console.log(data);});

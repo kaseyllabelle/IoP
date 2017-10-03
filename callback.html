@@ -138,6 +138,19 @@ function requestTokenURL() { return 'https://api.500px.com/v1/oauth/request_toke
 			//https://api.500px.com/api/js-sdk/check_authorization?sdk_key=04a57d5e6d2c3a8ee908e4c41db09f0f5ec31b26&callback=check500
 			console.log('check500',e);
 		}
+		function createNonce(len){
+		  let now = new Date().getTime();
+		  nonce = now+'';
+
+		  while (nonce.length < len)
+		  { nonce += new Date().getTime(); }
+		  nonce = nonce.split('').reverse().join('');
+		  nonce = btoa(nonce);
+		  nonce = nonce.slice(0,len)
+		  nonce = nonce.replace(/\+/g, '0').replace(/\//g, '0');
+		  
+		  return nonce;
+		}
 	</script>
 </body>
 </html>

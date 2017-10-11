@@ -2,6 +2,7 @@ var oAuthObj = {
 	'fivehundredpx': {
 		post: 'https://api.500px.com/v1/oauth/request_token?oauth_callback=https://kaseyllabelle.github.io/IoP/callback.html',
 		// oauth_callback:'https://kaseyllabelle.github.io/IoP/callback.html'
+	},
 	'giphy': {
 		api_key: 'AmvMPkwbW7v9oeXFDjyRXtCWJtNOZ2UL'
 	},

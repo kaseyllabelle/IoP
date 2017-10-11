@@ -7,17 +7,50 @@
 <body>
 	<h1>Puppies, please!</h1>
 	<p>Type an <a href="https://www.google.com/search?q=adjective" target="_blank">adjective</a> or breed into the input and click "search" for a curated list of your favorite kind of puppy videos. What more could you want?</p>
-	<form>
+<!-- 	<form>
 		<input type="text" placeholder="pitbull">
 		<input type="submit" class="button" value="Search">
-	</form>
-	<h2></h2>
-	<div class="js-results">
+	</form> -->
+	<div>
+	Sources:
+		<input type="checkbox" name='fivehundredpx'>500px</input><br/>
+		<input type="checkbox" name='giphy'>giphy</input><br/>
+		<input type="checkbox" name='imgur'>imgur</input><br/>
+		<input type="checkbox" name='instagram'>instagram</input><br/>
+		<input type="checkbox" name='pinterest'>pinterest</input><br/>
+		<input type="checkbox" name='tumblr'>tumblr</input><br/>
+		<input type="checkbox" name='youtube'>youtube</input>
 	</div>
+<!-- 	<h2></h2>
+	<div class="js-results">
+	</div> -->
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	  crossorigin="anonymous"></script>
-	<script src="app.js"></script>
+	<script>
+		$(document).ready(function(){
+		  $('input').click(function(){
+		    formatLocalStorage();
+		  });
+		})
+
+		function formatLocalStorage()
+		{
+		  var oAuths = [];
+		  $('input[type=checkbox]').each(function () {
+		    if(this.checked){
+		      let oAuthCreds = {
+		        site:$(this).attr('name'),
+		        token:''
+		      }
+		      oAuths.push(oAuthCreds)
+		    }
+		  });
+		  console.log('oAuths',oAuths);
+		  localStorage.setItem('oAuths',oAuths)
+		}
+	</script>
+	<!-- <script src="app.js"></script> -->
 </body>
 </html>

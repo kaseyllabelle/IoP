@@ -7,13 +7,13 @@ var oAuthObj = {
 	},
 	'imgur': {
 		client_id: 'e60c71383760a15',
-		client_secret: '54de1523950a8bea8c6a461445082977ffa7adfb'
+		client_secret: '54de1523950a8bea8c6a461445082977ffa7adfb',
 		request_token: 'https://api.imgur.com/oauth2/authorize?client_id=e60c71383760a15&response_type=token'
 		//'https://app.getpostman.com/oauth2/callback#access_token=f2179a5e9b68ffb7b92969d49ca10f334f2b0532&expires_in=315360000&token_type=bearer&refresh_token=73a3e40943641f82ca3f07c2b52cc6857a03d158&account_username=klldesigndev&account_id=72276011'
 	},
 	'instagram': {
 		client_id: '4f006fb6e156494d9f84141085c9ddae',
-		client_secret: '8c233ead378f4ec399226e6ff988ea3b'
+		client_secret: '8c233ead378f4ec399226e6ff988ea3b',
 		request_token: 'https://api.instagram.com/oauth/authorize/?client_id=4f006fb6e156494d9f84141085c9ddae&redirect_uri=https://kaseyllabelle.github.io/IoP/callback.html&response_type=token'
 		// 'https://kaseyllabelle.github.io/IoP/callback.html#access_token=6103829376.4f006fb.ae8af2aa30394f38b996aaf57002d7e4'
 	},

@@ -37,18 +37,18 @@
 
 		function formatLocalStorage()
 		{
-		  var oAuths = [];
+		  var selectedSources = [];
 		  $('input[type=checkbox]').each(function () {
 		    if(this.checked){
 		      let oAuthCreds = {
 		        site:$(this).attr('name'),
 		        token:''
 		      }
-		      oAuths.push(oAuthCreds)
+		      selectedSources.push(oAuthCreds)
 		    }
 		  });
-		  console.log('oAuths',oAuths);
-		  localStorage.setItem('oAuths',oAuths)
+		  console.log('selectedSources',selectedSources);
+		  localStorage.setItem('selectedSources',selectedSources)
 		}
 	</script>
 	<!-- <script src="app.js"></script> -->

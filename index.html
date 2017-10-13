@@ -1,29 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Puppies, please!</title>
+	<title>IoP Index</title>
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<h1>Puppies, please!</h1>
-	<p>Type an <a href="https://www.google.com/search?q=adjective" target="_blank">adjective</a> or breed into the input and click "search" for a curated list of your favorite kind of puppy videos. What more could you want?</p>
-<!-- 	<form>
+	<h1>IoP</h1>
+	<p>This app shows users a curated list of puppy images, videos, and gifs from all over the internet because the Internet of Puppies > the Internet of Things.</p>
+	<p>Just type an <a href="https://www.google.com/search?q=adjective" target="_blank">adjective</a> or breed into the input and click "Puppies, please!" for a curated list of your favorite kind of puppies. What more could you want?</p>
+	<form>
 		<input type="text" placeholder="pitbull">
-		<input type="submit" class="button" value="Search">
-	</form> -->
+		<input type="submit" class="button" value="Puppies, please!">
+	</form>
 	<div>
-	Sources:
-		<input type="checkbox" name='fivehundredpx'>500px</input><br/>
-		<input type="checkbox" name='giphy'>giphy</input><br/>
-		<input type="checkbox" name='imgur'>imgur</input><br/>
-		<input type="checkbox" name='instagram'>instagram</input><br/>
-		<input type="checkbox" name='pinterest'>pinterest</input><br/>
-		<input type="checkbox" name='tumblr'>tumblr</input><br/>
-		<input type="checkbox" name='youtube'>youtube</input>
+		<p>Show me puppies from:</p>
+		<label for="fivehundredpx">
+			<input type="checkbox" name="fivehundredpx" id="fivehundredpx" title="500px" />
+		    	500px
+		</label><br><br>
+		<label for="giphy">
+			<input type="checkbox" name="giphy" id="giphy" title="giphy" />
+		    	giphy
+		</label><br><br>
+		<label for="imgur">
+			<input type="checkbox" name="imgur" id="imgur" title="imgur" />
+			    imgur
+		</label><br><br>
+		<label for="instagram">
+			<input type="checkbox" name="instagram" id="instagram" title="instagram" />
+		    	instagram
+		</label><br><br>
+		<label for="pinterest">
+			<input type="checkbox" name="pinterest" id="pinterest" title="pinterest" />
+		    	pinterest
+		</label><br><br>
+		<label for="tumblr">
+			<input type="checkbox" name="tumblr" id="tumblr" title="tumblr" />
+		    	tumblr
+		</label><br><br>
+		<label for="youtube">
+			<input type="checkbox" name="youtube" id="youtube" title="youtube" />
+		    	youtube
+		</label>
 	</div>
-<!-- 	<h2></h2>
-	<div class="js-results">
-	</div> -->
+
+<!--
+
+Form inspired by: https://tympanus.net/Tutorials/NaturalLanguageForm/
+More examples: https://www.jroehm.com/2014/01/ui-pattern-natural-language-form/
+
+Show me [adjective input] puppy [type input] from [source input]
+
+I want to see [images, gifs, and videos] of [pitbull] puppies from [500px, giphy, imgur, instagram, pinterest, tumblr, and youtube].
+Puppies, please! ->
+
+Adjective:
+text field
+
+Type:
+checkboxes
+	images
+	gifs
+	videos
+
+Source:
+checkboxes
+	fivehundredpx
+	giphy
+	imgur
+	instagram
+	pinterest
+	tumblr
+	youtube
+
+-->
+
+	<!-- 	
+		<div>
+		Sources:
+			<input type="checkbox" name='fivehundredpx'>500px</input><br/>
+			<input type="checkbox" name='giphy'>giphy</input><br/>
+			<input type="checkbox" name='imgur'>imgur</input><br/>
+			<input type="checkbox" name='instagram'>instagram</input><br/>
+			<input type="checkbox" name='pinterest'>pinterest</input><br/>
+			<input type="checkbox" name='tumblr'>tumblr</input><br/>
+			<input type="checkbox" name='youtube'>youtube</input>
+		</div>
+	-->
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -51,6 +114,5 @@
 		  localStorage.setItem('selectedSources',selectedSources)
 		}
 	</script>
-	<!-- <script src="app.js"></script> -->
 </body>
 </html>

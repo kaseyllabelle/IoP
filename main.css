@@ -5,7 +5,6 @@ body
 	padding: 30px;
 	font-family: 'Roboto', sans-serif;
 	color: #424242;
-	text-align: center;
 	caret-color: #00BCD4;
 }
 
@@ -13,6 +12,7 @@ h1
 {
 	border-bottom: 1px solid #00BCD4;
 	padding-bottom: 30px;
+	text-align: center;
 }
 
 h1, h2
@@ -20,7 +20,7 @@ h1, h2
 	color: #00BCD4;	
 }
 
-h1, h2, input, button, .title
+h2, input, button, .title
 {
 	text-transform: uppercase;
 }
@@ -48,6 +48,7 @@ a:hover
 
 form
 {
+	text-align: center;
 	margin: 0 70px 30px 0;
 }
 

@@ -78,16 +78,13 @@ checkboxes
 
 		function formatLocalStorage()
 		{
-		  var selectedSources = [];
+		  var selectedSources = '';
 		  $('input[type=checkbox]').each(function () {
 		    if(this.checked){
-		      let oAuthCreds = {
-		        site:$(this).attr('name'),
-		        token:''
-		      }
-		      selectedSources.push(oAuthCreds)
+		      selectedSources += $(this).attr('name') + ',';
 		    }
 		  });
+		  selectedSources = selectedSources.slice(0, -1);
 		  console.log('selectedSources',selectedSources);
 		  localStorage.setItem('selectedSources',selectedSources)
 		}

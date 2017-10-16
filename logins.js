@@ -1,6 +1,3 @@
-// separate out each API
-// keep switch stmt in logins.js
-
 var oAuthObj = {
 	'fivehundredpx': {
 		post: 'https://api.500px.com/v1/oauth/request_token?oauth_callback=https://kaseyllabelle.github.io/IoP/callback.html'
@@ -38,9 +35,13 @@ var oAuthObj = {
 	}
 };
 
+// keep switch stmt in logins.js
+// on callback, take string, convert into array, loop through
+
 $(document).ready(function(){
 	var selectedSources = localStorage.getItem('selectedSources');
-	console.log(typeof(selectedSources));
+	selectedSources = selectedSources.split(',');
+	console.log(typeof(selectedSources), selectedSources);
 	// selectedSources = string
 	// helper to convert from obj to string back to obj
 

@@ -37,18 +37,21 @@ $(document).ready(function(){
 		return false;
 	}
 
+	console.log('test a');
+
 	var selectedSources = localStorage.getItem('selectedSources');
 
 	selectedSources = selectedSources.split(',');
-	localStorage.setItem('currentOAuth', selectedSources);
+	// localStorage.setItem('currentOAuth',selectedSources[0]);
 
 	function attemptOAuth(selectedSources){
 		if(!selectedSources[0].length){
 			return;
 		}
 
-		var currentOAuth = selectedSources.shift(), 
-			selectedSources = localStorage.setItem('selectedSources',selectedSources);
+		var currentOAuth = selectedSources.shift();
+		localStorage.setItem('selectedSources',selectedSources);
+		localStorage.setItem('currentOAuth',currentOAuth);	
 		
 		oAuthMethods[currentOAuth](oAuthObj[currentOAuth]);
 	};

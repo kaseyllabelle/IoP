@@ -31,25 +31,38 @@ var oAuthObj = {
 };
 
 $(document).ready(function(){
+	let matched = window.location.href.match(/.html$/); 
+	
+	if(!matched){
+		return false;
+	}
+
 	var selectedSources = localStorage.getItem('selectedSources');
+
 	selectedSources = selectedSources.split(',');
-	console.log(typeof(selectedSources), selectedSources);
+	localStorage.setItem('currentOAuth', selectedSources);
 
 	function attemptOAuth(selectedSources){
-		// if we need to be able to reload the page without sending 
-		// the next oAuth attempt because we're in the middle of an 
-		// attempt that reloads the page, set key in local storage that 
-		// says 'attempting oAuth' so we can toggle it to know whether 
-		// or not we should proceed
 		if(!selectedSources[0].length){
 			return;
 		}
-		var currentOAuth = selectedSources.shift();
-		var selectedSources = localStorage.setItem('selectedSources',selectedSources);
+
+		var currentOAuth = selectedSources.shift(), 
+			selectedSources = localStorage.setItem('selectedSources',selectedSources);
+		
 		oAuthMethods[currentOAuth](oAuthObj[currentOAuth]);
 	};
+
 	attemptOAuth(selectedSources);
 });
+
+function getURLParameter(name){
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) 
+		|| [null, ''])[1].replace(/\+/g, '%20')) 
+		|| null;
+}
+
+
 
 // div class="results" data-attribute="source" data-sort="type"
 // sort by type (img, gif, video), source (500px, insta, etc.)

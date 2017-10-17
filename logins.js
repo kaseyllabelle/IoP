@@ -34,6 +34,7 @@ $(document).ready(function(){
 	let matched = window.location.href.match(/.html$/); 
 	
 	if(!matched){
+		oAuthMethods[localStorage.getItem('currentOAuth')]({},true);
 		return false;
 	}
 

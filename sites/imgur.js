@@ -7,7 +7,7 @@ oAuthMethods.imgur = function(obj, requestFinalToken = false){
 	else{
 		console.log('test c');
 
-		localStorage.setItem('imgur_token', getURLParameter(access_token));
+		localStorage.setItem('imgur_token', getURLParameter('access_token'));
 		window.location.href = '/callback.html';
 	}
 };

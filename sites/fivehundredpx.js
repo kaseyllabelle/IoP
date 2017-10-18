@@ -7,9 +7,9 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 						'width=1240,height=480,left=100,top=100,menu=no,location=yes,scrollbars=no,status=no,toolbar=no');
 	}
 	else{
-		console.log('paused');
-		localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
-		win.close();
+		console.log('paused!');
+		// localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
+		// win.close();
 		oAuthMethods.fivehundredpxcb();
 	}
 };

@@ -38,8 +38,6 @@ $(document).ready(function(){
 		return false;
 	}
 
-	console.log('test a');
-
 	var selectedSources = localStorage.getItem('selectedSources');
 
 	selectedSources = selectedSources.split(',');

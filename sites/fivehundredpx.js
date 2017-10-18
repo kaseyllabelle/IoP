@@ -18,7 +18,7 @@ oAuthMethods.fivehundredpxcb = function(obj){
 	console.log(obj);
 	let iframe_element = document.createElement('iframe');
 	iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxComplete';
-	$('body').appendChild(iframe_element);
+	document.getElementsByTagName("body")[0].innerHtml=iframe_element;
 };
 
 oAuthMethods.fivehundredpxComplete = function(obj){

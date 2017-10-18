@@ -15,10 +15,14 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 oAuthMethods.fivehundredpxcb = function(obj){
 	console.log(obj);
 	let iframe_element = document.createElement('iframe');
-	iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=check500';
+	iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxComplete';
 	$('body').appendChild(iframe_element);
 };
 
 oAuthMethods.fivehundredpxComplete = function(obj){
 	console.log(obj);
 };
+
+
+// https://api.500px.com/api/js-sdk/authorize?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxcb
+// https://kaseyllabelle.github.io/IoP/callback.html#token:jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T,callback:oAuthMethods.fivehundredpxcb

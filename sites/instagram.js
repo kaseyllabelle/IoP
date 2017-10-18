@@ -4,7 +4,7 @@ oAuthMethods.instagram = function(obj, requestFinalToken = false){
 	}
 	else{
 		localStorage.setItem('instagram_token', getURLParameter('access_token'));
-		window.location.href = '/callback.html';
+		window.location.href = '/IoP/callback.html';
 	}
 	// 'instagram': {
 	// 	client_id: '4f006fb6e156494d9f84141085c9ddae',

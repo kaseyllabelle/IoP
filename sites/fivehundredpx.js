@@ -9,9 +9,9 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		let token = location.href.replace(/.*token:/g,'').replace(/,callback:.*/g,'');
 		localStorage.setItem('fivehundredpx_token', token);
 
-		window.close(),
-		self.close(),
-		var win = window.open("","_self"); win.close();
+		window.close();
+		self.close();
+		var wind = window.open("","_self"); wind.close();
 		window.parent.close();
 		top.open('','_self',''); top.close();
 	}

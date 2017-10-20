@@ -8,6 +8,7 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		console.log(location.href);
 		let token = location.href.replace(/.*token:/g,'').replace(/,callback:.*/g,'');
 		localStorage.setItem('fivehundredpx_token', token);
+		win.close();
 	}
 
 	if(!requestFinalToken){
@@ -19,12 +20,10 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		console.log('paused!');
 		if(localStorage.getItem('fivehundredpx_parsing') != 'true'){
 			localStorage.setItem('fivehundredpx_parsing','true');
-			// win.close();
 			oAuthMethods.fivehundredpxcb();	
 		}
 		else{
 			console.log(iframe_element);
-			// localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
 		}
 	}
 };
@@ -40,8 +39,3 @@ oAuthMethods.fivehundredpxComplete = function(obj){
 	console.log(obj);
 	// location.href = '/IoP/callback.html';
 };
-
-
-// https://api.500px.com/api/js-sdk/authorize?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxcb
-// https://kaseyllabelle.github.io/IoP/callback.html#token:jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T,callback:oAuthMethods.fivehundredpxcb
-// https://kaseyllabelle.github.io/IoP/callback.html#token:jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T,callback:oAuthMethods.fivehundredpxComplete

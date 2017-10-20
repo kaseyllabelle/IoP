@@ -6,7 +6,7 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 
 	if(location.href.indexOf('token:') > -1){
 		console.log(location.href);
-		let token = location.href.replace(/.token:/g,'').replace(/,callback:./g,'');
+		let token = location.href.replace(/.*token:/g,'').replace(/,callback:.*/g,'');
 		localStorage.setItem('fivehundredpx_token', token);
 	}
 

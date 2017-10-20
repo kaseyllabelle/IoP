@@ -3,6 +3,8 @@ let iframe_element;
 oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 	console.log(obj);
 	let win;
+	localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
+	
 	if(!requestFinalToken){
 		win = window.open('https://api.500px.com/api/js-sdk/authorize?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxcb',
 						'500px_js_sdk_login',
@@ -17,7 +19,7 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		}
 		else{
 			console.log(iframe_element);
-			localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
+			// localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
 		}
 	}
 };

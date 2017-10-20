@@ -3,10 +3,11 @@ let iframe_element;
 oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 	console.log(obj);
 	let win;
-	console.log(location.href);
 
-	if(getURLParameter('token:')){
-		localStorage.setItem('fivehundredpx_token', getURLParameter('token:'));
+	if(location.href.indexOf('token:') > -1){
+		console.log(location.href);
+		let token = location.href.replace(/.token:/g,'').replace(/,callback:./g,'');
+		localStorage.setItem('fivehundredpx_token', token);
 	}
 
 	if(!requestFinalToken){

@@ -22,26 +22,26 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 						'width=1240,height=480,left=100,top=100,menu=no,location=yes,scrollbars=no,status=no,toolbar=no');
 		// recursive function that checks if token is working and then closes window
 	}
-	else{
-		console.log('paused!');
-		if(localStorage.getItem('fivehundredpx_parsing') != 'true'){
-			localStorage.setItem('fivehundredpx_parsing','true');
-			oAuthMethods.fivehundredpxcb();	
-		}
-		else{
-			console.log(iframe_element);
-		}
-	}
+	// else{
+	// 	console.log('paused!');
+	// 	if(localStorage.getItem('fivehundredpx_parsing') != 'true'){
+	// 		localStorage.setItem('fivehundredpx_parsing','true');
+	// 		oAuthMethods.fivehundredpxcb();	
+	// 	}
+	// 	else{
+	// 		console.log(iframe_element);
+	// 	}
+	// }
 };
 
-oAuthMethods.fivehundredpxcb = function(obj){
-	console.log(obj);
-	iframe_element = document.createElement('iframe');
-	iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxComplete';
-	$('body').append(iframe_element);
-};
+// oAuthMethods.fivehundredpxcb = function(obj){
+// 	console.log(obj);
+// 	iframe_element = document.createElement('iframe');
+// 	iframe_element.src = 'https://api.500px.com/api/js-sdk/check_authorization?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxComplete';
+// 	$('body').append(iframe_element);
+// };
 
-oAuthMethods.fivehundredpxComplete = function(obj){
-	console.log(obj);
-	// location.href = '/IoP/callback.html';
-};
+// oAuthMethods.fivehundredpxComplete = function(obj){
+// 	console.log(obj);
+// 	// location.href = '/IoP/callback.html';
+// };

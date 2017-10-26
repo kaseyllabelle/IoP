@@ -85,7 +85,10 @@ checkboxes
 		    }
 		  });
 		  selectedSources = selectedSources.slice(0, -1);
-		  console.log('selectedSources',selectedSources);
+		  if(~indexOf('fivehundredpx')){
+		  	selectedSources.replace('fivehundredpx', '');
+		  	selectedSources += 'fivehundredpx';
+		  }
 		  localStorage.setItem('selectedSources',selectedSources);
 		}
 	</script>

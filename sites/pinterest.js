@@ -19,13 +19,21 @@
 // https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4929100152309825327&client_secret=cd9ec9a34b641dc603cada805774032b1a68767f37ebf0ade176160a50dc27fc&code=93ed5ba1a51d98ec
 
 oAuthMethods.pinterest = function(obj, requestFinalToken = false){
+	console.log(loction.href);
+
 	if(location.href.indexOf('state') === -1){
+		console.log('if');
 		window.location.href = 'https://api.pinterest.com/oauth/?response_type=code&client_id=4929100152309825327&state=puppies&scope=read_public&redirect_uri=https://kaseyllabelle.github.io/IoP/callback.html';
 	}
+
 	else{
 		let authCode = getURLParameter('code');
-		$.post('https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4929100152309825327&client_secret=cd9ec9a34b641dc603cada805774032b1a68767f37ebf0ade176160a50dc27fc&code=' + authCode);
-		// localStorage.setItem('imgur_token', getURLParameter('access_token'));
-		// window.location.href = '/IoP/callback.html';
+		console.log(authCode);
+		$.post('https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4929100152309825327&client_secret=cd9ec9a34b641dc603cada805774032b1a68767f37ebf0ade176160a50dc27fc&code=' + authCode, 
+			function(data){
+				localStorage.setItem('pinterest_token', data.access_token);
+				window.location.href = '/IoP/callback.html';
+			};
+		);
 	}
 };

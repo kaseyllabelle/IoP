@@ -33,7 +33,7 @@ var oAuthObj = {
 $(document).ready(function(){
 	let matched = window.location.href.match(/.html$/); 
 	
-	if(!matched){
+	if(!matched && localStorage.getItem('currentOAuth')){
 		oAuthMethods[localStorage.getItem('currentOAuth')]({},true);
 		return false;
 	}

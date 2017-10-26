@@ -41,7 +41,6 @@ $(document).ready(function(){
 	var selectedSources = localStorage.getItem('selectedSources');
 
 	selectedSources = selectedSources.split(',');
-	// localStorage.setItem('currentOAuth',selectedSources[0]);
 
 	function attemptOAuth(selectedSources){
 		if(!selectedSources[0].length){

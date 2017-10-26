@@ -86,8 +86,12 @@ checkboxes
 		  });
 		  selectedSources = selectedSources.slice(0, -1);
 		  if(~selectedSources.indexOf('fivehundredpx')){
-		  	selectedSources.replace('fivehundredpx', '');
-		  	selectedSources += 'fivehundredpx';
+		  	selectedSources.replace(/fivehundredpx/g, '');
+		  	selectedSources += ',fivehundredpx';
+		  }
+		  selectedSources.replace(/,,/g, ',');
+		  if(selectedSources.charAt(0) === ','){
+		  	selectedSources.slice(0, 1);
 		  }
 		  localStorage.setItem('selectedSources',selectedSources);
 		}

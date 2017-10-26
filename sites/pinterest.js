@@ -33,7 +33,7 @@ oAuthMethods.pinterest = function(obj, requestFinalToken = false){
 			function(data){
 				localStorage.setItem('pinterest_token', data.access_token);
 				window.location.href = '/IoP/callback.html';
-			};
+			}
 		);
 	}
 };

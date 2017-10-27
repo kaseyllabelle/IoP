@@ -44,6 +44,7 @@ $(document).ready(function(){
 
 	function attemptOAuth(selectedSources){
 		if(!selectedSources[0].length){
+			// loadImages();
 			return;
 		}
 
@@ -56,6 +57,10 @@ $(document).ready(function(){
 
 	attemptOAuth(selectedSources);
 });
+
+// function loadImages(){
+	
+// }
 
 function getURLParameter(name){
 	return decodeURIComponent((new RegExp('[?|&|#]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) 

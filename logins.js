@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 	function attemptOAuth(selectedSources){
 		if(!selectedSources[0].length){
-			loadImages();
+			window.location.href = '/IoP/index.html?load-puppies';
 			return;
 		}
 
@@ -57,10 +57,6 @@ $(document).ready(function(){
 
 	attemptOAuth(selectedSources);
 });
-
-function loadImages(){
-	
-}
 
 function getURLParameter(name){
 	return decodeURIComponent((new RegExp('[?|&|#]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) 

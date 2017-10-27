@@ -7,3 +7,14 @@ oAuthMethods.imgur = function(obj, requestFinalToken = false){
 		window.location.href = '/IoP/callback.html';
 	}
 };
+
+oAuthMethods.imgur_token = function(token){
+	// getting 403 error with token
+	var xhr = $.ajax({url: `https://api.imgur.com/3/gallery/search?q=${localStorage.query}`, headers: {'authorization': `Client-ID ${token}`}});
+	xhr.done(function(data){
+		console.log("WE HAVE PUPPIES!", data);
+		oAuthMethods.compiledImages.push({type: 'imgur', data});
+		oAuthMethods.loadIndex ++;
+		oAuthMethods.loadImages();
+	});
+};

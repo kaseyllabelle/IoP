@@ -11,9 +11,19 @@ oAuthMethods.imgur = function(obj, requestFinalToken = false){
 oAuthMethods.imgur_token = function(token){
 	var xhr = $.ajax({url: `https://api.imgur.com/3/gallery/search?q=${localStorage.query}`, headers: {'authorization': `Client-ID e60c71383760a15`}});
 	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES!", data);
-		oAuthMethods.compiledImages.push({type: 'imgur', data});
+		console.log("WE HAVE PUPPIES FROM IMGUR!", data);
+		for(let i=0; i<Math.min(data.data.length, 10); i++){
+			oAuthMethods.compiledImages.push({
+				source: 'imgur', 
+				url: data.data[i].link, 
+				thumbnail: data.data[i].images[0].link, 
+				title: data.data[i].title, 
+				type: data.data[i].images[0].type
+			});
+		}
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});
 };
+
+// add limit

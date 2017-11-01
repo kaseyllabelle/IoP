@@ -12,3 +12,13 @@ oAuthMethods.pinterest = function(obj, requestFinalToken = false){
 		);
 	}
 };
+
+// oAuthMethods.giphy_token = function(token){
+// 	var xhr = $.get(`https://api.giphy.com/v1/gifs/search?q=${localStorage.query}&api_key=${token}&limit=5`);
+// 	xhr.done(function(data){
+// 		console.log("WE HAVE PUPPIES FROM GIPHY!", data);
+// 		oAuthMethods.compiledImages.push({type: 'giphy', data});
+// 		oAuthMethods.loadIndex ++;
+// 		oAuthMethods.loadImages();
+// 	});
+// };

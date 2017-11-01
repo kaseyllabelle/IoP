@@ -9,8 +9,7 @@ oAuthMethods.imgur = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.imgur_token = function(token){
-	// getting 403 error with token
-	var xhr = $.ajax({url: `https://api.imgur.com/3/gallery/search?q=${localStorage.query}`, headers: {'authorization': `Client-ID ${token}`}});
+	var xhr = $.ajax({url: `https://api.imgur.com/3/gallery/search?q=${localStorage.query}`, headers: {'authorization': `Client-ID e60c71383760a15`}});
 	xhr.done(function(data){
 		console.log("WE HAVE PUPPIES!", data);
 		oAuthMethods.compiledImages.push({type: 'imgur', data});

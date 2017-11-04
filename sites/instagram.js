@@ -9,11 +9,18 @@ oAuthMethods.instagram = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.instagram_token = function(token){
-	var xhr = $.get(`https://api.instagram.com/v1/tags/search?q=${localStorage.query}&access_token=${token}&scope=public_content`);
-	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES FROM INSTAGRAM!", data);
-		oAuthMethods.compiledImages.push({type: 'instagram', data});
-		oAuthMethods.loadIndex ++;
-		oAuthMethods.loadImages();
+	var xhr = $.get(`https://api.instagram.com/v1/tags/search?q=${localStorage.query}&access_token=${token}`);
+	console.log(xhr);
+	xhr.catch(function(error){
+		console.log(error);
 	});
+	// xhr.done(function(data){
+	// 	console.log("WE HAVE PUPPIES FROM INSTAGRAM!", data);
+	// 	oAuthMethods.compiledImages.push({type: 'instagram', data});
+	// 	oAuthMethods.loadIndex ++;
+	// 	oAuthMethods.loadImages();
+	// });
 };
+
+// cors issue is happening within instagram
+// need to ignore error and use info returned from network tab

@@ -3,12 +3,20 @@ oAuthMethods.youtube = function(obj){
 	window.location.href = '/IoP/callback.html';
 };
 
-// oAuthMethods.giphy_token = function(token){
-// 	var xhr = $.get(`https://api.giphy.com/v1/gifs/search?q=${localStorage.query}&api_key=${token}&limit=5`);
-// 	xhr.done(function(data){
-// 		console.log("WE HAVE PUPPIES FROM GIPHY!", data);
-// 		oAuthMethods.compiledImages.push({type: 'giphy', data});
-// 		oAuthMethods.loadIndex ++;
-// 		oAuthMethods.loadImages();
-// 	});
-// };
+oAuthMethods.youtube_token = function(token){
+	var xhr = $.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${token}&q=${localStorage.query}&maxResults=10`);
+	xhr.done(function(data){
+		console.log("WE HAVE PUPPIES FROM YOUTUBE!", data);
+		for(let i=0; i<Math.min(data.items.length, 10); i++){
+			oAuthMethods.compiledImages.push({
+				source: 'youtube', 
+				url: 'https://www.youtube.com/watch?v=' + data.items[i].id.videoId, 
+				thumbnail: data.items[i].snippet.thumbnails.medium.url, 
+				title: data.items[i].snippet.title, 
+				type: data.items[i].id.kind
+			});
+		}
+		oAuthMethods.loadIndex ++;
+		oAuthMethods.loadImages();
+	});
+};

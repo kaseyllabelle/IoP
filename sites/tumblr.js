@@ -11,8 +11,7 @@ oAuthMethods.tumblr_token = function(token){
 			oAuthMethods.compiledImages.push({
 				source: 'tumblr', 
 				url: data.response[i].short_url, 
-				// thumbnail isn't working, error = cannot read property [0] of undefined
-				// thumbnail: data.response[i].photos[0].alt_sizes[4].url, 
+				thumbnail: (data.response[i].photos) ? data.response[i].photos[0].alt_sizes[4].url : data.response[i].thumbnail_url, 
 				title: data.response[i].caption, 
 				type: data.response[i].type
 			});

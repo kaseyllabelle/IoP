@@ -24,3 +24,4 @@ oAuthMethods.instagram_token = function(token){
 
 // cors issue is happening within instagram
 // need to ignore error and use info returned from network tab
+// https://api.instagram.com/v1/tags/search?q=pittie&access_token=6103829376.4f006fb.ae8af2aa30394f38b996aaf57002d7e4

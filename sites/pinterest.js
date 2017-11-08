@@ -1,3 +1,5 @@
+var xhr;
+
 oAuthMethods.pinterest = function(obj, requestFinalToken = false){
 	if(location.href.indexOf('state') === -1){
 		window.location.href = 'https://api.pinterest.com/oauth/?response_type=code&client_id=4929100152309825327&state=puppies&scope=read_public&redirect_uri=https://kaseyllabelle.github.io/IoP/callback.html';
@@ -15,21 +17,22 @@ oAuthMethods.pinterest = function(obj, requestFinalToken = false){
 
 oAuthMethods.pinterest_token = function(token){
 	// var xhr = $.get(`https://api.pinterest.com/v1/search/pins/?q=${localStorage.query}&access_token=${token}&limit=10`);
-	var xhr = $.get(`https://api.pinterest.com/v1/search/pins/?q=${localStorage.query}&rs=typed&term_meta[]=pittie%7Ctyped`);
-	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES FROM PINTEREST!", data);
-		// for(let i=0; i<Math.min(data.items.length, 10); i++){
-		// 	oAuthMethods.compiledImages.push({
-		// 		source: 'youtube', 
-		// 		url: 'https://www.youtube.com/watch?v=' + data.items[i].id.videoId, 
-		// 		thumbnail: data.items[i].snippet.thumbnails.medium.url, 
-		// 		title: data.items[i].snippet.title, 
-		// 		type: data.items[i].id.kind
-		// 	});
-		// }
-		oAuthMethods.loadIndex ++;
-		oAuthMethods.loadImages();
-	});
+	xhr = $("#content").load(`https://www.pinterest.com/search/pins/?q=${localStorage.query}&rs=typed&term_meta[]=pittie%7Ctyped`);
+	// xhr.done(function(data){
+	// 	console.log("WE HAVE PUPPIES FROM PINTEREST!", data);
+	// 	// for(let i=0; i<Math.min(data.items.length, 10); i++){
+	// 	// 	oAuthMethods.compiledImages.push({
+	// 	// 		source: 'youtube', 
+	// 	// 		url: 'https://www.youtube.com/watch?v=' + data.items[i].id.videoId, 
+	// 	// 		thumbnail: data.items[i].snippet.thumbnails.medium.url, 
+	// 	// 		title: data.items[i].snippet.title, 
+	// 	// 		type: data.items[i].id.kind
+	// 	// 	});
+	// 	// }
+	// 	oAuthMethods.loadIndex ++;
+	// 	oAuthMethods.loadImages();
+	// });
+	console.log(xhr);
 };
 
 // https://www.pinterest.com/search/pins/?q=pittie

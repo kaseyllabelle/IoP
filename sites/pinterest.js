@@ -14,8 +14,8 @@ oAuthMethods.pinterest = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.pinterest_token = function(token){
-	// var xhr = $.get(`https://api.pinterest.com/v1/search/pins/?access_token=${token}&q=${localStorage.query}&limit=10`);
-	var xhr = $.get(`https://api.pinterest.com/v1/search/pins/?q=${localStorage.query}`);
+	// var xhr = $.get(`https://api.pinterest.com/v1/search/pins/?q=${localStorage.query}&access_token=${token}&limit=10`);
+	var xhr = $.get(`https://api.pinterest.com/v1/search/pins/?q=${localStorage.query}&rs=typed&term_meta[]=pittie%7Ctyped`);
 	xhr.done(function(data){
 		console.log("WE HAVE PUPPIES FROM PINTEREST!", data);
 		// for(let i=0; i<Math.min(data.items.length, 10); i++){
@@ -31,3 +31,6 @@ oAuthMethods.pinterest_token = function(token){
 		oAuthMethods.loadImages();
 	});
 };
+
+// https://www.pinterest.com/search/pins/?q=pittie
+// https://www.pinterest.com/search/pins/?q=pittie&rs=typed&term_meta[]=pittie%7Ctyped

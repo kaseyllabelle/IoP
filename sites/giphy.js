@@ -5,6 +5,11 @@ oAuthMethods.giphy = function(){
 
 oAuthMethods.giphy_token = function(token){
 	var xhr = $.get(`https://api.giphy.com/v1/gifs/search?q=${localStorage.query}&api_key=${token}&limit=10`);
+	xhr.catch(function(error){
+		console.log(error);
+		oAuthMethods.loadIndex ++;
+		oAuthMethods.loadImages();
+	});
 	xhr.done(function(data){
 		console.log("WE HAVE PUPPIES FROM GIPHY!", data.data);
 		for(let i=0; i<data.data.length; i++){

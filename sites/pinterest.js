@@ -33,6 +33,11 @@ oAuthMethods.pinterest_token = function(token){
 	// 	oAuthMethods.loadImages();
 	// });
 	console.log(xhr);
+	xhr.catch(function(error){
+		console.log(error);
+		oAuthMethods.loadIndex ++;
+		oAuthMethods.loadImages();
+	});
 };
 
 // https://www.pinterest.com/search/pins/?q=pittie

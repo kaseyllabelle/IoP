@@ -13,15 +13,20 @@ oAuthMethods.instagram_token = function(token){
 	console.log(xhr);
 	xhr.catch(function(error){
 		console.log(error);
+		oAuthMethods.loadIndex ++;
+		oAuthMethods.loadImages();
 	});
-	// xhr.done(function(data){
-	// 	console.log("WE HAVE PUPPIES FROM INSTAGRAM!", data);
-	// 	oAuthMethods.compiledImages.push({type: 'instagram', data});
-	// 	oAuthMethods.loadIndex ++;
-	// 	oAuthMethods.loadImages();
-	// });
+	xhr.done(function(data){
+		console.log("WE HAVE PUPPIES FROM INSTAGRAM!", data);
+		oAuthMethods.compiledImages.push({type: 'instagram', data});
+		oAuthMethods.loadIndex ++;
+		oAuthMethods.loadImages();
+	});
 };
 
 // cors issue is happening within instagram
 // need to ignore error and use info returned from network tab
 // https://api.instagram.com/v1/tags/search?q=pittie&access_token=6103829376.4f006fb.ae8af2aa30394f38b996aaf57002d7e4
+
+
+// add limit

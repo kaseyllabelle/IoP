@@ -9,24 +9,32 @@ oAuthMethods.instagram = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.instagram_token = function(token){
-	var xhr = $.get(`https://api.instagram.com/v1/tags/search?q=${localStorage.query}&access_token=${token}`);
-	console.log(xhr);
+	var xhr = $.get(`https://www.instagram.com/explore/tags/${localStorage.query}/?hl=en`)
 	xhr.catch(function(error){
 		console.log(error);
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES FROM INSTAGRAM!", data);
-		oAuthMethods.compiledImages.push({type: 'instagram', data});
+	  let objStr = data.match(/(window\._sharedData\s=\s)(.*)(?=;.*<\/script>)/g);
+	  objStr = objStr[0];
+	  objStr = objStr.replace(/window\._sharedData\s=\s/,'').trim();
+	  setTimeout(()=>{
+	    let obj = JSON.parse(instagramPuppies);
+	    let data = obj.entry_data.TagPage["0"].tag.media.nodes
+	    // console.log(obj);
+		for(let i=0; i<Math.min(data.length, 10); i++){
+			oAuthMethods.compiledImages.push({
+				source: 'instagram', 
+				url: `https://www.instagram.com/p/${data[i].code}/`,
+				thumbnail: data[i].display_src, 
+				title: data[i].caption, 
+				type: (data[i].is_video) ? 'video' : 'image'
+			});
+		}
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
-	});
+	  },1000);
+	  window.instagramPuppies = objStr;
+	})
 };
-
-// cors issue is happening within instagram
-// need to ignore error and use info returned from network tab
-// https://api.instagram.com/v1/tags/search?q=pittie&access_token=6103829376.4f006fb.ae8af2aa30394f38b996aaf57002d7e4
-
-
-// add limit

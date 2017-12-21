@@ -63,8 +63,3 @@ function getURLParameter(name){
 		|| [null, ''])[1].replace(/\+/g, '%20')) 
 		|| null;
 }
-
-
-
-// div class="results" data-attribute="source" data-sort="type"
-// sort by type (img, gif, video), source (500px, insta, etc.)

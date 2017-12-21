@@ -28,8 +28,17 @@ oAuthMethods.fivehundredpx_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES FROM 500PX!", data);
-		oAuthMethods.compiledImages.push({type: 'fivehundredpx', data});
+		// console.log("WE HAVE PUPPIES FROM 500PX!", data);
+	    let dta = data.photos
+		for(let i=0; i<Math.min(dta.length, 10); i++){
+			oAuthMethods.compiledImages.push({
+				source: 'fivehundredpx', 
+				url: `https://www.fivehundredpx.com/p/${dta[i].url}/`,
+				thumbnail: dta[i].image_url, 
+				title: dta[i].description,
+				type: 'image'
+			});
+		}
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});

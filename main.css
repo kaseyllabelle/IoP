@@ -1,6 +1,6 @@
 body
 {
-	max-width: 560px;
+	/*max-width: 560px;*/
 	margin: 0 auto;
 	padding: 30px;
 	font-family: 'Roboto', sans-serif;
@@ -127,4 +127,22 @@ button.button
 .title:hover
 {
 	background-color: #4DD0E1;
+}
+
+.wrapper
+{
+	display: inline-block;
+}
+
+.wrapper-inner
+{
+	max-width: 200px;
+	max-height: 200px;
+	overflow: hidden;
+}
+
+.puppy-pic
+{
+	width: 100%;
+	height: 100%;
 }

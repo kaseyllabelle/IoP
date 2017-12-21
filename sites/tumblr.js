@@ -11,7 +11,7 @@ oAuthMethods.tumblr_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES FROM TUMBLR!", data);
+		// console.log("WE HAVE PUPPIES FROM TUMBLR!", data);
 		for(let i=0; i<Math.min(data.response.length, 10); i++){
 			oAuthMethods.compiledImages.push({
 				source: 'tumblr', 

@@ -4,7 +4,6 @@ oAuthMethods.youtube = function(obj){
 };
 
 oAuthMethods.youtube_token = function(token){
-	console.log('youtube');
 	var xhr = $.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${token}&q=${localStorage.query}&maxResults=10`);
 	xhr.catch(function(error){
 		console.log(error);
@@ -12,7 +11,7 @@ oAuthMethods.youtube_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		console.log("WE HAVE PUPPIES FROM YOUTUBE!", data);
+		// console.log("WE HAVE PUPPIES FROM YOUTUBE!", data);
 		for(let i=0; i<Math.min(data.items.length, 10); i++){
 			oAuthMethods.compiledImages.push({
 				source: 'youtube', 

@@ -32,8 +32,8 @@ oAuthMethods.fivehundredpx_token = function(token){
 	    let dta = data.photos
 		for(let i=0; i<Math.min(dta.length, 10); i++){
 			oAuthMethods.compiledImages.push({
-				source: 'fivehundredpx', 
-				url: `https://www.fivehundredpx.com/p/${dta[i].url}/`,
+				source: '500px', 
+				url: `https://www.500px.com/p/${dta[i].url}/`,
 				thumbnail: dta[i].image_url, 
 				title: dta[i].description,
 				type: 'image'

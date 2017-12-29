@@ -17,106 +17,77 @@
 	<script src="sites/youtube.js"></script>
 </head>
 <body>
-<section class="sidebar">
-	<div class="section-wrapper">
-		<h1>IoP</h1>
-		<p>This app shows users a curated list of puppy images, videos, and gifs from all over the internet because the Internet of Puppies > the Internet of Things.</p>
-		<!-- <p>Just type an <a href="https://www.google.com/search?q=adjective" target="_blank">adjective</a> or breed into the input, select the types of results you want to see and the sources you want to search, and click "Puppies, please!" for a curated list of your favorite kind of puppies. What more could you want?</p> -->
-		<nav>
-			<!-- I want to see [adjective/breed] puppy [images, videos, gifs] from [sources].  -->
-			<!-- Set up so commas and "and" will render if you select more than one type option -->
-			<fieldset>
-				<div>
-					<input type="text" placeholder="pitbull"> 
-				</div>
-			</fieldset>
-			<fieldset>
-				<div class="result-type">
-					<input type="checkbox" name="gifs" id="gifs" title="gifs" />
-					<label for="gifs">gifs</label>
-				</div>
-				<div class="result-type">
-					<input type="checkbox" name="images" id="images" title="images" />
-					<label for="images">images</label>
-				</div>
-				<div class="result-type">
-					<input type="checkbox" name="videos" id="videos" title="videos" />
-					<label for="videos">videos</label>
-				</div>
-			</fieldset>
-			<fieldset>
-				<div>
-					<input type="checkbox" name="fivehundredpx" id="fivehundredpx" title="fivehundredpx" />
-					<label for="fivehundredpx">500px</label>
-				</div>
-				<div>
-					<input type="checkbox" name="giphy" id="giphy" title="giphy" />
-					<label for="giphy">giphy</label>
-				</div>
-				<div>
-					<input type="checkbox" name="imgur" id="imgur" title="imgur" />
-					<label for="imgur">imgur</label>
-				</div>
-				<div>
-					<input type="checkbox" name="instagram" id="instagram" title="instagram" />
-					<label for="instagram">instagram</label>
-				</div>
-				<div>
-					<input type="checkbox" name="pinterest" id="pinterest" title="pinterest" />
-					<label for="pinterest">pinterest</label>
-				</div>
-				<div>
-					<input type="checkbox" name="tumblr" id="tumblr" title="tumblr" />
-					<label for="tumblr">tumblr</label>
-				</div>
-				<div>
-					<input type="checkbox" name="youtube" id="youtube" title="youtube" />
-					<label for="youtube">youtube</label>
-				</div>
-			</fieldset>
-		</nav>
-	</div>
-	<input type="submit" class="button" value="Puppies, please!">
-</section>
-<section class="main">
-	<div class="section-wrapper">
-		<div class="grid">
-			<div class="grid-sizer"></div>
-			<div class="gutter-sizer"></div>
+	<section class="sidebar">
+		<div class="section-wrapper">
+			<h1>IoP</h1>
+			<!-- Nest everything else in here into a mobile nav with swapping downward caret and x -->
+			<p>This app shows users a curated list of puppy images, videos, and gifs from all over the internet because the Internet of Puppies&nbsp;>&nbsp;the Internet of Things.</p>
+			<p>Just type an <a href="https://www.google.com/search?q=adjective" target="_blank">adjective</a> or breed into the text input, select the sources you want to search, and click "Puppies, please!" for a curated list of your favorite kind of puppies. What more could you want?</p>
+			<nav>
+				<!-- I want to see [adjective/breed] puppy [images, videos, gifs] from [sources].  -->
+				<!-- Set up so commas and "and" will render if you select more than one type option -->
+				<fieldset>
+					<div>
+						<input type="text" placeholder="pitbull">
+					</div>
+				</fieldset>
+				<!-- <fieldset>
+					<legend>types</legend>
+					<div class="result-type">
+						<input type="checkbox" name="gifs" id="gifs" title="gifs" />
+						<label for="gifs">gifs</label>
+					</div>
+					<div class="result-type">
+						<input type="checkbox" name="images" id="images" title="images" />
+						<label for="images">images</label>
+					</div>
+					<div class="result-type">
+						<input type="checkbox" name="videos" id="videos" title="videos" />
+						<label for="videos">videos</label>
+					</div>
+				</fieldset> -->
+				<fieldset>
+					<div>
+						<input type="checkbox" name="fivehundredpx" id="fivehundredpx" title="fivehundredpx" />
+						<label for="fivehundredpx">500px</label>
+					</div>
+					<div>
+						<input type="checkbox" name="giphy" id="giphy" title="giphy" />
+						<label for="giphy">GIPHY</label>
+					</div>
+					<div>
+						<input type="checkbox" name="imgur" id="imgur" title="imgur" />
+						<label for="imgur">Imgur</label>
+					</div>
+					<div>
+						<input type="checkbox" name="instagram" id="instagram" title="instagram" />
+						<label for="instagram">Instagram</label>
+					</div>
+					<div>
+						<input type="checkbox" name="pinterest" id="pinterest" title="pinterest" />
+						<label for="pinterest">Pinterest</label>
+					</div>
+					<div>
+						<input type="checkbox" name="tumblr" id="tumblr" title="tumblr" />
+						<label for="tumblr">Tumblr</label>
+					</div>
+					<div>
+						<input type="checkbox" name="youtube" id="youtube" title="youtube" />
+						<label for="youtube">YouTube</label>
+					</div>
+				</fieldset>
+				<input type="submit" class="button" value="Puppies, please!">
+			</nav>
 		</div>
-	</div>
-</section>
-<!--
-
-
-Form inspired by: https://tympanus.net/Tutorials/NaturalLanguageForm/ and https://token.ai/find-gift
-More examples: https://www.jroehm.com/2014/01/ui-pattern-natural-language-form/
-
-Show me [adjective input] puppy [type input] from [source input]
-
-I want to see [images, gifs, and videos] of [pitbull] puppies from [500px, giphy, imgur, instagram, pinterest, tumblr, and youtube].
-Puppies, please! ->
-
-Adjective:
-text field
-
-Type:
-checkboxes
-	images
-	gifs
-	videos
-
-Source:
-checkboxes
-	fivehundredpx
-	giphy
-	imgur
-	instagram
-	pinterest
-	tumblr
-	youtube
-
--->
+	</section>
+	<section class="main">
+		<div class="section-wrapper">
+			<div class="grid">
+				<div class="grid-sizer"></div>
+				<div class="gutter-sizer"></div>
+			</div>
+		</div>
+	</section>
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -125,32 +96,27 @@ checkboxes
 </body>
 </html>
 
-
 <!-- 
+add scroll for sticky left nav when content is too tall
+add img, vid, gif buttons (icon + text) in button bar for types of results
+add social media icons for sources
+on xs
+	.sidebar becomes sticky top nav?
+	OR no sticky top nav, but add button to shoot back to top?
+	fix that .main scrolls on top of .sidebar
+hook up text input and checkboxes with submit button to render results instead of /load-puppies
 fix facebook account for pinterest
-
-clean up index.html
-do UI stuff
 get pinterest working
-make sure all have limits and loops and error handling
-add a button to render more results OR infinite scroll
-
-text input for breed
-3 selectable icons in bar for img, vid, gif w icon + name
-expandable? section for sources w icon + name
-full width puppies pls button
-
-more results button in results container
-OR infinite scroll?
-
-authentication doesnt work on iphone/github
-
 add flickr? add facebook?
-
+authentication doesnt work on iphone/github
+make sure all have limits and loops and error handling
+more results button in results container or infinite scroll
+add infinite scroll for additional results
+add ability to search by type of result
 add functionality to share result to
-Facebook
-Instagram
-Pinterest
-Tumblr
-Twitter
+	Facebook
+	Instagram
+	Pinterest
+	Tumblr
+	Twitter
 -->

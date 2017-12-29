@@ -13,13 +13,15 @@ body
 	left: 0;
 	width: 20%;
 	height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-right: 1px solid #00BCD4;
 	background-color: #fff;
 }
 
 .main
 {
 	padding-left: 20%;
-	background-color: red;
 }
 
 .section-wrapper
@@ -70,23 +72,20 @@ fieldset
 	margin-bottom: 10px;
 }
 
-input[type="text"]
+/*input[type="text"]
 {
 	width: 90%;
-}
+}*/
 
-.result-type
+/*.result-type
 {
 	display: inline-block;
 	border: 1px solid blue;
-}
+}*/
 
-input[type="submit"]
+/*input[type="submit"]
 {
-	position: fixed;
-	bottom: 0;
-	width: 20%;
-}
+}*/
 
 input
 {
@@ -106,7 +105,6 @@ input::placeholder
 
 .button
 {
-	width: 100%;
 	border: 1px solid transparent;
 	border-radius: 2px;
 	padding: 10px;
@@ -176,4 +174,37 @@ input::placeholder
 .caption:hover
 {
 	background-color: #4DD0E1;
+}
+
+/* RESPONSIVE STYLES */
+@media only screen and (max-width: 767px){
+
+	.sidebar
+	{
+		right: 0;
+		width: 100%;
+	}
+
+	.main
+	{
+		padding: 700px 0 0 0;
+	}
+
+	.section-wrapper
+	{
+		padding: 0;
+	}
+
+	h1
+	{
+		color: #fff;
+		background-color: #00BCD4;
+		text-align: left;
+	}
+
+	p, 
+	nav
+	{
+		background-color: #fff;
+	}
 }

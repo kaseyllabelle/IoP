@@ -72,8 +72,27 @@ function imageLoaded(){
 			percentPosition: true
 		});
 		$('.grid').css("visibility", "visible");
+
+		// // INFINITE SCROLL
+		// // get Masonry instance
+		// var msnry = $grid.data('masonry');
+
+		// // init Infinite Scroll
+		// $grid.infiniteScroll({
+		// 	// Infinite Scroll options...
+		// 	append: '.grid__item',
+		// 	outlayer: msnry,
+		// });
+
+		// // $('.container').infiniteScroll({
+		// // 	path: '.pagination__next',
+		// // 	append: '.post',
+		// // 	history: false,
+		// // });
 	}
 };
+
+
 
 oAuthMethods.displayImages = function(){
 	oAuthMethods.compiledImages.sort(function(a, b){
@@ -82,7 +101,7 @@ oAuthMethods.displayImages = function(){
 
 	for(i=0; i<oAuthMethods.compiledImages.length; i++){
 		$('.grid').append(`
-			<div class="grid-item wrapper">
+			<div class="grid-item post wrapper">
 				<a href="${oAuthMethods.compiledImages[i].url}" target="_blank">
 					<div class="wrapper-inner">
 						<img onLoad="imageLoaded()" class="thumbnail" src="${oAuthMethods.compiledImages[i].thumbnail}"/>
@@ -94,16 +113,4 @@ oAuthMethods.displayImages = function(){
 	}
 }
 
-var elem = document.querySelector('.grid');
-
-
-
-// $('.container').infiniteScroll({
-// 	// options
-// 	path: '.pagination__next',
-// 	append: '.post',
-// 	history: false,
-// });
-
-// div class="results" data-attribute="source" data-sort="type"
-// sort by type (img, gif, video), source (500px, insta, etc.)
+var elem = document.querySelector('.grid'); // where should this go?

@@ -31,9 +31,10 @@ $(document).ready(function(){
 	}
 });
 
+var selectedSources = '';
+
 function formatLocalStorage()
 {
-	var selectedSources = '';
 	$('input[type=checkbox]').each(function(){
 		if(this.checked){
 			selectedSources += $(this).attr('name') + ',';
@@ -46,10 +47,11 @@ function formatLocalStorage()
 	}
 	selectedSources.replace(/,,/g, ',');
 }
-	if(selectedSources.charAt(0) === ','){
-		selectedSources = selectedSources.slice(1, selectedSources.length);
-	}
-	localStorage.setItem('selectedSources',selectedSources);
+
+if(selectedSources.charAt(0) === ','){
+	selectedSources = selectedSources.slice(1, selectedSources.length);
+}
+localStorage.setItem('selectedSources',selectedSources);
 
 oAuthMethods.loadImages = function(){
 	if(oAuthMethods.loadIndex >= oAuthMethods.loadArray.length){

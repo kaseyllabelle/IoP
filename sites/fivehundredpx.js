@@ -10,7 +10,6 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		var wind = window.open("","_self"); wind.close();
 		window.parent.close();
 		top.open('','_self',''); top.close();
-		window.location.href = '/IoP/callback.html';
 	}
 	if(!requestFinalToken){
 		win = window.open('https://api.500px.com/api/js-sdk/authorize?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxcb',
@@ -18,10 +17,6 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 						'width=1240,height=480,left=100,top=100,menu=no,location=yes,scrollbars=no,status=no,toolbar=no');
 	}
 };
-
-oAuthMethods.fivehundredpxcb = function(e){
-	window.location.href = '/IoP/callback.html';
-}
 
 oAuthMethods.fivehundredpx_token = function(token){
 	var xhr = $.ajax({url: `https://api.500px.com/v1/photos/search?term=${localStorage.query}`, 

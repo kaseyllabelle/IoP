@@ -16,25 +16,24 @@ oAuthMethods.instagram_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-	  let objStr = data.match(/(window\._sharedData\s=\s)(.*)(?=;.*<\/script>)/g);
-	  objStr = objStr[0];
-	  objStr = objStr.replace(/window\._sharedData\s=\s/,'').trim();
-	  setTimeout(()=>{
-	    let obj = JSON.parse(instagramPuppies);
-	    let data = obj.entry_data.TagPage["0"].tag.media.nodes
-	    // console.log(obj);
+		let objStr = data.match(/(window\._sharedData\s=\s)(.*)(?=;.*<\/script>)/g);
+		objStr = objStr[0];
+		objStr = objStr.replace(/window\._sharedData\s=\s/,'').trim();
+		setTimeout(()=>{
+		let obj = JSON.parse(instagramPuppies);
+		let data = obj.entry_data.TagPage["0"].graphql.hashtag.edge_hashtag_to_media.edges
 		for(let i=0; i<Math.min(data.length, 10); i++){
 			oAuthMethods.compiledImages.push({
 				source: 'instagram', 
-				url: `https://www.instagram.com/p/${data[i].code}/`,
-				thumbnail: data[i].display_src, 
-				title: data[i].caption, 
-				type: (data[i].is_video) ? 'video' : 'image'
+				url: data[i].node.display_url,
+				thumbnail: data[i].node.thumbnail_src, 
+				title: data[i].node.edge_media_to_caption.edges["0"].node.text, 
+				type: (data[i].node.is_video) ? 'video' : 'image'
 			});
 		}
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
-	  },1000);
-	  window.instagramPuppies = objStr;
-	})
+		},1000);
+		window.instagramPuppies = objStr;
+	});
 };

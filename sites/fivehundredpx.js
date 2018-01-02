@@ -10,6 +10,7 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		var wind = window.open("","_self"); wind.close();
 		window.parent.close();
 		top.open('','_self',''); top.close();
+		window.location.href = '/IoP/callback.html';
 	}
 	if(!requestFinalToken){
 		win = window.open('https://api.500px.com/api/js-sdk/authorize?sdk_key=d53a58c94138c694793ca71c78cf347dae4b7e1b&callback=oAuthMethods.fivehundredpxcb',

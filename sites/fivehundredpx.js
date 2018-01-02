@@ -19,6 +19,10 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 	}
 };
 
+oAuthMethods.fivehundredpxcb = function(e){
+	window.location.href = '/IoP/callback.html';
+}
+
 oAuthMethods.fivehundredpx_token = function(token){
 	var xhr = $.ajax({url: `https://api.500px.com/v1/photos/search?term=${localStorage.query}`, 
 		headers: {'Authorization': `OAuth oauth_consumer_key="xHkW9aeTnoYk4k1lUYicCjbKY9VXjYOWxE3OsBt8"`},

@@ -7,7 +7,7 @@ $(document).ready(function(){
 		window.location.href = '/IoP/callback.html';
 	});
 
-  	// remove this before pushing
+ //  	// remove this before pushing
 	// localStorage.setItem('fivehundredpx_token', 'jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T');
 	// localStorage.setItem('giphy_token', 'AmvMPkwbW7v9oeXFDjyRXtCWJtNOZ2UL');
 	// localStorage.setItem('imgur_token', '25106fb1b49ed4ba17901c415d3c2ac8803ec921');
@@ -31,9 +31,8 @@ $(document).ready(function(){
 	}
 });
 
-var selectedSources = '';
-
 function formatLocalStorage(){
+	var selectedSources = '';
 	$('input[type=checkbox]').each(function(){
 		if(this.checked){
 			selectedSources += $(this).attr('name') + ',';
@@ -45,12 +44,11 @@ function formatLocalStorage(){
 		selectedSources += ',fivehundredpx';
 	}
 	selectedSources.replace(/,,/g, ',');
+	if(selectedSources.charAt(0) === ','){
+		selectedSources = selectedSources.slice(1, selectedSources.length);
+	}
+	localStorage.setItem('selectedSources',selectedSources);
 }
-
-if(selectedSources.charAt(0) === ','){
-	selectedSources = selectedSources.slice(1, selectedSources.length);
-}
-localStorage.setItem('selectedSources',selectedSources);
 
 oAuthMethods.loadImages = function(){
 	if(oAuthMethods.loadIndex >= oAuthMethods.loadArray.length){

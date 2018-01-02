@@ -33,8 +33,7 @@ $(document).ready(function(){
 
 var selectedSources = '';
 
-function formatLocalStorage()
-{
+function formatLocalStorage(){
 	$('input[type=checkbox]').each(function(){
 		if(this.checked){
 			selectedSources += $(this).attr('name') + ',';

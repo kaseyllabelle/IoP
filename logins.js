@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 	var selectedSources = localStorage.getItem('selectedSources');
 
-	selectedSources = selectedSources.split(',');
+	selectedSources = (selectedSources) ? selectedSources.split(',') : [];
 
 	function attemptOAuth(selectedSources){
 		if(!selectedSources[0].length){

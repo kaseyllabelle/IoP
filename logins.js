@@ -43,7 +43,7 @@ $(document).ready(function(){
 	selectedSources = (selectedSources) ? selectedSources.split(',') : [];
 
 	function attemptOAuth(selectedSources){
-		if(!selectedSources || !selectedSources[0].length){
+		if(!selectedSources[0] || !selectedSources[0].length){
 			window.location.href = '/IoP/index.html?load-puppies';
 			return;
 		}

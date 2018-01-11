@@ -14,6 +14,12 @@ $(document).ready(function(){
 			$('input[type=submit]').removeAttr('disabled');
 		}
 	});
+	$('input[type=button]').click(function(){
+		oAuthMethods.currentPage++;
+		$.get('/IoP/callback.html');
+		// window.location.href = '/IoP/callback.html';
+	});
+
 
 	// remove this before pushing
 	// localStorage.setItem('fivehundredpx_token', 'jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T');
@@ -69,6 +75,8 @@ function formatLocalStorage(){
 	localStorage.setItem('selectedSources',selectedSources);
 	localStorage.setItem('checkedCheckboxes',selectedSources);
 }
+
+oAuthMethods.currentPage = 0;
 
 oAuthMethods.loadImages = function(){
 	if(oAuthMethods.loadIndex >= oAuthMethods.loadArray.length){

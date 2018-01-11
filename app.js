@@ -10,7 +10,7 @@ $(document).ready(function(){
 		window.location.href = '/IoP/callback.html';
 	});
 	$('input[type=text]').keydown(function(){
-		if(localStorage.getItem('selectedSources')){
+		if(localStorage.getItem('checkedCheckboxes')){
 			$('input[type=submit]').removeAttr('disabled');
 		}
 	});

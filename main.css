@@ -103,6 +103,12 @@ input::placeholder
 	opacity: .7;
 }
 
+input[disabled],
+input[disabled]:hover
+{
+	background-color: gray;
+}
+
 .button
 {
 	border: 1px solid transparent;

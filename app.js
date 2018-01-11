@@ -2,12 +2,15 @@ $(document).ready(function(){
 	$('input[type=checkbox]').click(function(){
 		formatLocalStorage();
 	});
-	$('input.button').click(function(){
+	$('input[type=submit]').click(function(){
+		if($(this).attr('disabled')){
+			return false;
+		}
 		localStorage.setItem('query',$('input[type=text]').val());
 		window.location.href = '/IoP/callback.html';
 	});
 
- //  	// remove this before pushing
+	// // remove this before pushing
 	// localStorage.setItem('fivehundredpx_token', 'jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T');
 	// localStorage.setItem('giphy_token', 'AmvMPkwbW7v9oeXFDjyRXtCWJtNOZ2UL');
 	// localStorage.setItem('imgur_token', '25106fb1b49ed4ba17901c415d3c2ac8803ec921');
@@ -37,6 +40,7 @@ $(document).ready(function(){
 
 function formatLocalStorage(){
 	var selectedSources = '';
+	$('input[type=submit]').removeAttr('disabled');
 	$('input[type=checkbox]').each(function(){
 		if(this.checked){
 			selectedSources += $(this).attr('name') + ',';

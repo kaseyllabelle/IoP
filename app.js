@@ -9,6 +9,11 @@ $(document).ready(function(){
 		localStorage.setItem('query',$('input[type=text]').val());
 		window.location.href = '/IoP/callback.html';
 	});
+	$('input[type=text]').keyDown(function(){
+		if(localStorage.getItem('selectedSources')){
+			$('input[type=submit]').removeAttr('disabled');
+		}
+	});
 
 	// // remove this before pushing
 	// localStorage.setItem('fivehundredpx_token', 'jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T');

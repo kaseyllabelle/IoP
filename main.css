@@ -109,6 +109,11 @@ input[disabled]:hover
 	background-color: gray;
 }
 
+input[type="button"]
+{
+	display: none;
+}
+
 .button
 {
 	border: 1px solid transparent;

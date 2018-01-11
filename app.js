@@ -92,6 +92,7 @@ function imageLoaded(){
 		});
 		$('.main .loading').css('display', 'none');
 		$('.grid').css('visibility', 'visible');
+		$('input[type=button]').css('display', 'block');
 
 		// // INFINITE SCROLL
 		// // get Masonry instance

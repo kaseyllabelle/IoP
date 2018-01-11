@@ -6,7 +6,7 @@ $(document).ready(function(){
 		if($(this).attr('disabled')){
 			return false;
 		}
-		localStorage.setItem('query',$('input[type=text]').val());
+		localStorage.setItem('query', $('input[type=text]').val() + ' puppies');
 		window.location.href = '/IoP/callback.html';
 	});
 	$('input[type=text]').keydown(function(){

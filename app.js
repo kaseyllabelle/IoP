@@ -9,7 +9,7 @@ $(document).ready(function(){
 		localStorage.setItem('query',$('input[type=text]').val());
 		window.location.href = '/IoP/callback.html';
 	});
-	$('input[type=text]').keyDown(function(){
+	$('input[type=text]').keydown(function(){
 		if(localStorage.getItem('selectedSources')){
 			$('input[type=submit]').removeAttr('disabled');
 		}

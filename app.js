@@ -21,6 +21,10 @@ $(document).ready(function(){
 		oAuthMethods.compiledImages = [];
 		oAuthMethods.loadArray = [];
 		oAuthMethods.loadIndex = 0;
+		let checkboxes = localStorage.getItem('checkedCheckboxes').split(',') || [];
+		for(i=0; i<checkboxes.length; i++){
+			$(`input[name=${checkboxes[i]}]`).attr('checked', 'checked');
+		}
 		for(key in localStorage){
 			if(~key.indexOf('_token')){
 				let tmp = [key, localStorage[key]];
@@ -37,6 +41,9 @@ function formatLocalStorage(){
 		if(this.checked){
 			selectedSources += $(this).attr('name') + ',';
 		}
+		else{
+			delete localStorage[$(this).attr('name') + '_token'];
+		}
 	});
 	selectedSources = selectedSources.slice(0, -1);
 	if(~selectedSources.indexOf('fivehundredpx')){
@@ -48,6 +55,7 @@ function formatLocalStorage(){
 		selectedSources = selectedSources.slice(1, selectedSources.length);
 	}
 	localStorage.setItem('selectedSources',selectedSources);
+	localStorage.setItem('checkedCheckboxes',selectedSources);
 }
 
 oAuthMethods.loadImages = function(){

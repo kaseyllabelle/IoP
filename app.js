@@ -21,7 +21,7 @@ $(document).ready(function(){
 		oAuthMethods.compiledImages = [];
 		oAuthMethods.loadArray = [];
 		oAuthMethods.loadIndex = 0;
-		let checkboxes = localStorage.getItem('checkedCheckboxes').split(',') || [];
+		let checkboxes = localStorage.getItem('checkedCheckboxes') ? localStorage.getItem('checkedCheckboxes').split(',') : [];
 		for(i=0; i<checkboxes.length; i++){
 			$(`input[name=${checkboxes[i]}]`).attr('checked', 'checked');
 		}

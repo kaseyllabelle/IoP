@@ -23,6 +23,9 @@ oAuthMethods.instagram_token = function(token){
 		let obj = JSON.parse(instagramPuppies);
 		let data = obj.entry_data.TagPage["0"].graphql.hashtag.edge_hashtag_to_media.edges
 		for(let i=0; i<Math.min(data.length, 10); i++){
+			if(!data[i].node.thumbnail_src){
+				continue;
+			}
 			oAuthMethods.compiledImages.push({
 				source: 'instagram', 
 				url: data[i].node.display_url,

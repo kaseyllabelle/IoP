@@ -13,6 +13,9 @@ oAuthMethods.giphy_token = function(token){
 	xhr.done(function(data){
 		// console.log("WE HAVE PUPPIES FROM GIPHY!", data.data);
 		for(let i=0; i<Math.min(data.data.length, 10); i++){
+			if(!data.data[i].images.fixed_width.url){
+				continue;
+			}
 			oAuthMethods.compiledImages.push({
 				source: 'giphy', 
 				url: data.data[i].url, 

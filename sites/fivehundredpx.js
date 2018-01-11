@@ -31,6 +31,9 @@ oAuthMethods.fivehundredpx_token = function(token){
 		// console.log("WE HAVE PUPPIES FROM 500PX!", data);
 	    let dta = data.photos
 		for(let i=0; i<Math.min(dta.length, 10); i++){
+			if(!dta[i].image_url){
+				continue;
+			}
 			oAuthMethods.compiledImages.push({
 				source: '500px', 
 				url: `https://www.500px.com/p/${dta[i].url}/`,

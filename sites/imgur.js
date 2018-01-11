@@ -18,6 +18,9 @@ oAuthMethods.imgur_token = function(token){
 	xhr.done(function(data){
 		// console.log("WE HAVE PUPPIES FROM IMGUR!", data);
 		for(let i=0; i<Math.min(data.data.length, 10); i++){
+			if(!data.data[i].images){
+				continue;
+			}
 			oAuthMethods.compiledImages.push({
 				source: 'imgur', 
 				url: data.data[i].link, 

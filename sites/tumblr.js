@@ -4,14 +4,13 @@ oAuthMethods.tumblr = function(){
 };
 
 oAuthMethods.tumblr_token = function(token){
-	var xhr = $.get(`https://api.tumblr.com/v2/tagged?api_key=${token}&tag=${localStorage.query}`);
+	let xhr = $.get(`https://api.tumblr.com/v2/tagged?api_key=${token}&tag=${localStorage.query}`);
 	xhr.catch(function(error){
 		console.log(error);
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		// console.log("WE HAVE PUPPIES FROM TUMBLR!", data);
 		for(let i=0; i<Math.min(data.response.length, 10); i++){
 			if(!data.response[i].photos[0].alt_sizes[4].url && !data.response[i].thumbnail_url){
 				continue;

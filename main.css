@@ -72,21 +72,6 @@ fieldset
 	margin-bottom: 10px;
 }
 
-/*input[type="text"]
-{
-	width: 90%;
-}*/
-
-/*.result-type
-{
-	display: inline-block;
-	border: 1px solid blue;
-}*/
-
-/*input[type="submit"]
-{
-}*/
-
 input
 {
 	border: 1px solid #00BCD4;
@@ -154,6 +139,14 @@ input[type="button"]
 }
 
 /* RESULTS */
+
+.loading
+{
+	text-align: center;
+	font-size: 18px;
+	color: #00BCD4;
+	text-transform: uppercase;
+}
 
 .wrapper
 {

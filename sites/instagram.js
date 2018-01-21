@@ -9,7 +9,7 @@ oAuthMethods.instagram = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.instagram_token = function(token){
-	var xhr = $.get(`https://www.instagram.com/explore/tags/${localStorage.query}/?hl=en`)
+	let xhr = $.get(`https://www.instagram.com/explore/tags/${localStorage.query}/?hl=en`)
 	xhr.catch(function(error){
 		console.log(error);
 		oAuthMethods.loadIndex ++;

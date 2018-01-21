@@ -4,14 +4,13 @@ oAuthMethods.youtube = function(obj){
 };
 
 oAuthMethods.youtube_token = function(token){
-	var xhr = $.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${token}&q=${localStorage.query}&maxResults=10`);
+	let xhr = $.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${token}&q=${localStorage.query}&maxResults=10`);
 	xhr.catch(function(error){
 		console.log(error);
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		// console.log("WE HAVE PUPPIES FROM YOUTUBE!", data);
 		for(let i=0; i<Math.min(data.items.length, 10); i++){
 			if(!data.items[i].snippet.thumbnails.medium.url){
 				continue;

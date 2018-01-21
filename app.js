@@ -1,4 +1,8 @@
-$(document).ready(function(){
+var h = 0;
+var elem = document.querySelector('.grid');
+oAuthMethods.currentPage = 0;
+
+$(document).ready(function(){	
 	$('input[type=checkbox]').click(function(){
 		formatLocalStorage();
 	});
@@ -19,16 +23,6 @@ $(document).ready(function(){
 		oAuthMethods.compiledImages=[];
 		oAuthMethods.fivehundredpx_token(localStorage.getItem('fivehundredpx_token'));
 	});
-
-	// remove this before pushing
-	// localStorage.setItem('fivehundredpx_token', 'jdqPAbiJ7hoWo9IAuM0DjNS23P1mt2VOAc3p1x7T');
-	// localStorage.setItem('giphy_token', 'AmvMPkwbW7v9oeXFDjyRXtCWJtNOZ2UL');
-	// localStorage.setItem('imgur_token', '25106fb1b49ed4ba17901c415d3c2ac8803ec921');
-	// localStorage.setItem('instagram_token', '6103829376.4f006fb.ae8af2aa30394f38b996aaf57002d7e4');
-	// // localStorage.setItem('pinterest_token', 'AeGLHsdraOcQzJFOXIzGOuthtj9iFQJnit7vt0pEkOfdp8A4swAAAAA');
-	// localStorage.setItem('tumblr_token', 'NPVdky515PEendzYYA44WarFcZeKhstduONQB979h3q8KMFCKM');
-	// localStorage.setItem('youtube_token', 'AIzaSyCzk-5OigvpFn0Bo1U8InpPOj5VOc3Awf8');
-	// localStorage.setItem('query', 'pittie');
 	
 	for(k in localStorage){
 		if(k.indexOf('_token') > -1){
@@ -38,7 +32,10 @@ $(document).ready(function(){
 
 	if(~window.location.href.indexOf('load-puppies')){
 		$('.main').append(`
-			<img src="./images/loading.gif" class="loading" />
+			<div class="loading">
+				<p>Loading puppies!</p>
+				<img src="./images/loading.gif"/>
+			</div>
 		`);
 		oAuthMethods.compiledImages = [];
 		oAuthMethods.loadArray = [];
@@ -58,7 +55,7 @@ $(document).ready(function(){
 });
 
 function formatLocalStorage(){
-	var selectedSources = '';
+	let selectedSources = '';
 	$('input[type=submit]').removeAttr('disabled');
 	$('input[type=checkbox]').each(function(){
 		if(this.checked){
@@ -81,23 +78,17 @@ function formatLocalStorage(){
 	localStorage.setItem('checkedCheckboxes',selectedSources);
 }
 
-oAuthMethods.currentPage = 0;
-
 oAuthMethods.loadImages = function(){
 	if(oAuthMethods.loadIndex >= oAuthMethods.loadArray.length){
-		// console.log(oAuthMethods.compiledImages);
 		oAuthMethods.displayImages();
 		return;
 	}
-	// console.log(oAuthMethods.loadArray[oAuthMethods.loadIndex], parseInt(oAuthMethods.loadIndex));
 	oAuthMethods[oAuthMethods.loadArray[oAuthMethods.loadIndex][0]](oAuthMethods.loadArray[oAuthMethods.loadIndex][1]);
 }
 
-let h = 0; // where should this go?
-
 function imageLoaded(){
 	if(++h >= oAuthMethods.compiledImages.length){
-		var msnry = new Masonry( elem, {
+		let msnry = new Masonry( elem, {
 			itemSelector: '.grid-item',
 			columnWidth: '.grid-sizer',
 			gutter: '.gutter-sizer',
@@ -106,23 +97,6 @@ function imageLoaded(){
 		$('.main .loading').css('display', 'none');
 		$('.grid').css('visibility', 'visible');
 		$('input[type=button]').css('display', 'block');
-
-		// // INFINITE SCROLL
-		// // get Masonry instance
-		// var msnry = $grid.data('masonry');
-
-		// // init Infinite Scroll
-		// $grid.infiniteScroll({
-		// 	// Infinite Scroll options...
-		// 	append: '.grid__item',
-		// 	outlayer: msnry,
-		// });
-
-		// // $('.container').infiniteScroll({
-		// // 	path: '.pagination__next',
-		// // 	append: '.post',
-		// // 	history: false,
-		// // });
 	}
 };
 
@@ -143,5 +117,3 @@ oAuthMethods.displayImages = function(){
 		`);
 	}
 }
-
-var elem = document.querySelector('.grid'); // where should this go?

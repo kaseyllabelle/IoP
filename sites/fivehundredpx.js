@@ -7,7 +7,7 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 		localStorage.setItem('fivehundredpx_token', token);
 		window.close();
 		self.close();
-		var wind = window.open("","_self"); wind.close();
+		let wind = window.open("","_self"); wind.close();
 		window.parent.close();
 		top.open('','_self',''); top.close();
 	}
@@ -19,7 +19,7 @@ oAuthMethods.fivehundredpx = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.fivehundredpx_token = function(token){
-	var xhr = $.ajax({url: `https://api.500px.com/v1/photos/search?term=${localStorage.query}`, 
+	let xhr = $.ajax({url: `https://api.500px.com/v1/photos/search?term=${localStorage.query}`, 
 		headers: {'Authorization': `OAuth oauth_consumer_key="xHkW9aeTnoYk4k1lUYicCjbKY9VXjYOWxE3OsBt8"`},
 		data: {'consumer_key' : 'xHkW9aeTnoYk4k1lUYicCjbKY9VXjYOWxE3OsBt8'}});
 	xhr.catch(function(error){
@@ -28,7 +28,6 @@ oAuthMethods.fivehundredpx_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		// console.log("WE HAVE PUPPIES FROM 500PX!", data);
 	    let dta = data.photos
 		for(let i=0; i<Math.min(dta.length, 10); i++){
 			if(!dta[i].image_url){

@@ -9,14 +9,13 @@ oAuthMethods.imgur = function(obj, requestFinalToken = false){
 };
 
 oAuthMethods.imgur_token = function(token){
-	var xhr = $.ajax({url: `https://api.imgur.com/3/gallery/search?q=${localStorage.query}`, headers: {'authorization': `Client-ID e60c71383760a15`}});
+	let xhr = $.ajax({url: `https://api.imgur.com/3/gallery/search?q=${localStorage.query}`, headers: {'authorization': `Client-ID e60c71383760a15`}});
 	xhr.catch(function(error){
 		console.log(error);
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		// console.log("WE HAVE PUPPIES FROM IMGUR!", data);
 		for(let i=0; i<Math.min(data.data.length, 10); i++){
 			if(!data.data[i].images){
 				continue;

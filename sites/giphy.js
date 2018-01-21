@@ -4,14 +4,13 @@ oAuthMethods.giphy = function(){
 };
 
 oAuthMethods.giphy_token = function(token){
-	var xhr = $.get(`https://api.giphy.com/v1/gifs/search?q=${localStorage.query}&api_key=${token}`);
+	let xhr = $.get(`https://api.giphy.com/v1/gifs/search?q=${localStorage.query}&api_key=${token}`);
 	xhr.catch(function(error){
 		console.log(error);
 		oAuthMethods.loadIndex ++;
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
-		// console.log("WE HAVE PUPPIES FROM GIPHY!", data.data);
 		for(let i=0; i<Math.min(data.data.length, 10); i++){
 			if(!data.data[i].images.fixed_width.url){
 				continue;

@@ -30,7 +30,7 @@ $(document).ready(function(){
 	// }
 
 	if(~window.location.href.indexOf('load-puppies')){
-		$('.main').append(`
+		$('.main').prepend(`
 			<div class="loading">
 				<p>Loading puppies!</p>
 				<img src="./images/loading.gif"/>

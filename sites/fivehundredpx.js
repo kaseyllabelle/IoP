@@ -28,6 +28,7 @@ oAuthMethods.fivehundredpx_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
+		console.log("WE HAVE PUPPIES FROM 500PX!", data);
 	    let dta = data.photos
 		for(let i=0; i<Math.min(dta.length, 10); i++){
 			if(!dta[i].image_url){

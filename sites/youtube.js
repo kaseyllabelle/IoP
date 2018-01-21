@@ -11,6 +11,7 @@ oAuthMethods.youtube_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
+		console.log("WE HAVE PUPPIES FROM YOUTUBE!", data);
 		for(let i=0; i<Math.min(data.items.length, 10); i++){
 			if(!data.items[i].snippet.thumbnails.medium.url){
 				continue;

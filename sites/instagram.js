@@ -16,6 +16,7 @@ oAuthMethods.instagram_token = function(token){
 		oAuthMethods.loadImages();
 	});
 	xhr.done(function(data){
+		console.log("WE HAVE PUPPIES FROM INSTAGRAM!", data);
 		let objStr = data.match(/(window\._sharedData\s=\s)(.*)(?=;.*<\/script>)/g);
 		objStr = objStr[0];
 		objStr = objStr.replace(/window\._sharedData\s=\s/,'').trim();

@@ -18,17 +18,16 @@ $(document).ready(function(){
 			$('input[type=submit]').removeAttr('disabled');
 		}
 	});
-	$('input[type=button]').click(function(){
-		oAuthMethods.currentPage++;
-		oAuthMethods.compiledImages=[];
-		oAuthMethods.fivehundredpx_token(localStorage.getItem('fivehundredpx_token'));
-	});
-	
-	for(k in localStorage){
-		if(k.indexOf('_token') > -1){
-			oAuthMethods[k](localStorage.getItem(k));
-		}
-	}
+	// $('input[type=button]').click(function(){
+	// 	oAuthMethods.currentPage++;
+	// 	oAuthMethods.compiledImages=[];
+	// 	oAuthMethods.fivehundredpx_token(localStorage.getItem('fivehundredpx_token'));
+	// });	
+	// for(k in localStorage){
+	// 	if(k.indexOf('_token') > -1){
+	// 		oAuthMethods[k](localStorage.getItem(k));
+	// 	}
+	// }
 
 	if(~window.location.href.indexOf('load-puppies')){
 		$('.main').append(`
